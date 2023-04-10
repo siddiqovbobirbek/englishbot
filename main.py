@@ -20,7 +20,6 @@ logging.basicConfig(level=logging.INFO)
 bot = Bot(token=API_TOKEN, proxy=None, parse_mode=types.ParseMode.HTML)
 dp = Dispatcher(bot)
 
-
 @dp.message_handler(commands=['start'])
 async def send_welcome(message: types.Message):
     """
@@ -50,7 +49,7 @@ async def tarjimon(message: types.Message):
         else:
             word_id = translator.translate(message.text, dest='en').text
 
-        lookup = getDefinitions(word_id, session)
+        lookup = getDefinitions(word_id)
         if lookup:
             await message.reply(f"Word: {word_id} \nDefinitions:\n{lookup['definitions']}")
             if lookup.get('audio'):
