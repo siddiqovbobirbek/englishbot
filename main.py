@@ -22,10 +22,10 @@ dp = Dispatcher(bot)
 
 @dp.message_handler(commands=['start'])
 async def send_welcome(message: types.Message):
-    """
-    This handler will be called when user sends `/start` or `/help` command
-    """
-    await message.reply("Assalomu alaykum!\nBotimizga Xush Kelibsiz!")
+    user = message.from_user
+    full_name = user.first_name
+    await message.reply(f"Assalomu alaykum, {full_name}!!!  \nBotimizga Xush Kelibsiz!")
+
 
 
 @dp.message_handler(commands=['help'])
@@ -58,7 +58,7 @@ async def tarjimon(message: types.Message):
             await message.reply("Bunday so'z topilmadi!")
 
 
-@dp.message_handler(commands=['admin', 'count'])
+@dp.message_handler(commands='admin')
 async def get_members(message: types.Message):
     chat_id = message.chat.id
     print("Message chat id", chat_id)
