@@ -1,5 +1,5 @@
 import logging
-import aiohttp
+import os
 
 from aiogram import Bot, Dispatcher, executor, types
 from aiogram.dispatcher import filters
@@ -7,13 +7,9 @@ from oxfordLookup import getDefinitions
 from googletrans import Translator
 translator = Translator()
 
+
 API_TOKEN = '5877282476:AAGnMyFvYGACfBdB-EB10BocirZJDFUna5s'
-# proxy_url = 'http://proxy.server:3128'
 
-# connector = aiohttp.ProxyConnector(proxy=proxy_url)
-# session = aiohttp.ClientSession(connector=connector)
-
-# Configure logging
 logging.basicConfig(level=logging.INFO)
 
 # Initialize bot and dispatcher
